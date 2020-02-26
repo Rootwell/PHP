@@ -1,0 +1,6 @@
+<form action="brainfuck.php">
+    brainfuck code<input type="text" name="bf">
+    <br>
+    input line <input type="text" name="input">
+    <input type="submit" value="ok">
+</form>
