@@ -5,7 +5,7 @@ $input = $_REQUEST["input"];
 //var_dump($input."\n");
 $arraycells = [];
 for ($i = 0; $i < 256; $i++) {
-    $arraycells[$i] = $i;
+    $arraycells[$i] = 0;
 }
 //var_dump($arraycells);
 $c = 0;
@@ -29,25 +29,26 @@ for ($codepoint = 0; $codepoint < strlen($code); $codepoint++) {
             }
             break;
         case "+":
-            $arraycells[$arraycellspoint]++;
+            ++$arraycells[$arraycellspoint];
             break;
         case "-":
-            $arraycells[$arraycellspoint]--;
+            --$arraycells[$arraycellspoint];
             break;
         case ".":
-            $output = $output . chr($arraycells[$arraycellspoint]);
+            $string = chr($arraycells[$arraycellspoint]);
+            $output = $output . $string;
             break;
         case ",":
             $arraycells[$arraycellspoint] = ord($input[$inputpoint]);
             $inputpoint++;
             break;
         case "[":
-            if ($arraycells[$arraycellspoint] == 0) {
+            if ($arraycells[$arraycellspoint] === 0) {
                 $codepoint++;
                 while ($c > 0 || $code[$codepoint] != "]") {
-                    if ($code[$codepoint] == "[")
+                    if ($code[$codepoint] === "[")
                         $c++;
-                    elseif ($code[$codepoint] == "]")
+                    elseif ($code[$codepoint] === "]")
                         $c--;
                     $codepoint++;
                 }
@@ -57,9 +58,9 @@ for ($codepoint = 0; $codepoint < strlen($code); $codepoint++) {
             if ($arraycells[$arraycellspoint] != 0) {
                 $codepoint--;
                 while ($c > 0 || $code[$codepoint] != "[") {
-                    if ($code[$codepoint] == "]")
+                    if ($code[$codepoint] === "]")
                         $c++;
-                    elseif ($code[$codepoint] == "[")
+                    elseif ($code[$codepoint] === "[")
                         $c--;
                     $codepoint--;
                 }
