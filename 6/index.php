@@ -42,7 +42,7 @@ while (!feof($filedescript)) {
         if (strlen($rules[2]['delete']) == 1) {
             echo strtr($current_string, $rules[2]['delete'], '') . '<br>';
         } else {
-            echo 'only single characters allowed in delete in .ini file'.'<br>';
+            echo 'only single characters allowed in delete in .ini file' . '<br>';
         }
         continue;
     }
