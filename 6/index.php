@@ -22,7 +22,7 @@ while (!feof($filedescript)) {
             echo (strtolower($current_string)) . '<br>';
             continue;
         }
-        echo 'unexpected upper value in .ini file'. '<br>';
+        echo 'unexpected upper value in .ini file' . '<br>';
         continue;
     }
     if (startsWith($current_string, $rules[1]['symbol'])) {
@@ -34,12 +34,16 @@ while (!feof($filedescript)) {
             echo strtr($current_string, "0123456789", "9012345678") . '<br>';
             continue;
         }
-        echo 'unexpected direction value in .ini file'. '<br>';
+        echo 'unexpected direction value in .ini file' . '<br>';
         continue;
 
     }
     if (startsWith($current_string, $rules[2]['symbol'])) {
-        echo strtr($current_string, $rules[2]['delete'], '') . '<br>';
+        if (strlen($rules[2]['delete']) == 1) {
+            echo strtr($current_string, $rules[2]['delete'], '') . '<br>';
+        } else {
+            echo 'only single characters allowed in delete in .ini file'.'<br>';
+        }
         continue;
     }
     echo 'unknown command number at the start of line' . '<br>';
