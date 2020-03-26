@@ -46,6 +46,5 @@ while (!feof($filedescript)) {
         }
         continue;
     }
-    echo 'unknown command number at the start of line' . '<br>';
 }
 ?>
