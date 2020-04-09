@@ -5,7 +5,7 @@ function startsWith($string, $startString)
     return (substr($string, 0, $len) === $startString);
 }
 
-$array = parse_ini_file("index.ini", true);
+$array = parse_ini_file("index.ini", true, INI_SCANNER_TYPED);
 $filename = $array['main']['filename'];
 $rules[] = $array['first_rule'];
 $rules[] = $array['second_rule'];
@@ -14,11 +14,11 @@ $filedescript = fopen($filename, "r");
 while (!feof($filedescript)) {
     $current_string = fgets($filedescript);
     if (startsWith($current_string, $rules[0]['symbol'])) {
-        if ($rules[0]['upper'] === 'true') {
+        if ($rules[0]['upper'] === true) {
             echo (strtoupper($current_string)) . '<br>';
             continue;
         }
-        if ($rules[0]['upper'] === 'false') {
+        if ($rules[0]['upper'] === false) {
             echo (strtolower($current_string)) . '<br>';
             continue;
         }
