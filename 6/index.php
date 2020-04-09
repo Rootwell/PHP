@@ -14,11 +14,11 @@ $filedescript = fopen($filename, "r");
 while (!feof($filedescript)) {
     $current_string = fgets($filedescript);
     if (startsWith($current_string, $rules[0]['symbol'])) {
-        if ($rules[0]['upper'] == true) {
+        if ($rules[0]['upper'] === 'true') {
             echo (strtoupper($current_string)) . '<br>';
             continue;
         }
-        if ($rules[0]['upper'] == false) {
+        if ($rules[0]['upper'] === 'false') {
             echo (strtolower($current_string)) . '<br>';
             continue;
         }
