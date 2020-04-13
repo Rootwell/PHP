@@ -1,6 +1,6 @@
 <?php
 set_time_limit(0);
-$link = $_REQUEST["link"];
+$link = escapeshellarg($_REQUEST["link"]);
 $type = $_REQUEST["type"];
 $ipregex = "/\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/";
 $command = $type . " " . $link;
