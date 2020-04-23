@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Logger</title>
+</head>
+<body>
+<form action="scrypt.php">
+    <textarea name="entryText">
+    </textarea>
+    Choose logging way:<br>
+    File:<input type="radio" name="logWay" value="File" checked> <input type="text" name="fileName" value="log.txt"><br>
+    Browser:<input type="radio" name="logWay" value="Browser"><br>
+    Params for logs:<br>
+    time: <input type="radio" name="params" value="H:i"><br>
+    date and time: <input type="radio" name="params" value="d.m.Y"><br>
+    no params: <input type="radio" name="params" value="noParams" checked><br>
+    <input type="submit" value="OK">
+</form>
+</body>
+</html>
