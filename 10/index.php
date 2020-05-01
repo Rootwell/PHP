@@ -1,7 +1,10 @@
 <?php
 ini_set('display_errors', 1);
 ini_set('error_reporting', E_ALL);
-spl_autoload_register();
+spl_autoload_register(function ($className){
+    include $className.".php";
+    echo "ya v indexe bil"."<br>";
+});
 
 $exceptionGenerator = new ExceptionGenerator();
 

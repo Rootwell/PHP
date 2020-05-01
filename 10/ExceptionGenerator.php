@@ -1,5 +1,9 @@
 <?php
-spl_autoload_register();
+spl_autoload_register(function ($className) {
+    include "\ownExceptions\\".$className.".php";
+    echo "ya v exceptionGeneratore bil";
+});
+
 class ExceptionGenerator
 {
     public function generateException()
@@ -7,22 +11,22 @@ class ExceptionGenerator
         $case = rand(1, 5);
         switch ($case) {
             case 1:
-                return new \ownExceptions\IOExceptionOwn("ioexception");
+                throw new \ownExceptions\IOExceptionOwn("ioexception");
                 break;
             case 2:
-                return new \ownExceptions\InputExceptionOwn("inputexception");
+                throw new \ownExceptions\InputExceptionOwn("inputexception");
                 break;
             case 3:
-                return new \ownExceptions\OutputExceptionOwn("outputexception");
+                throw new \ownExceptions\OutputExceptionOwn("outputexception");
                 break;
             case 4:
-                return new \ownExceptions\WrongParameterExceptionOwn("wrongparamexception");
+                throw new \ownExceptions\WrongParameterExceptionOwn("wrongparamexception");
                 break;
             case 5:
-                return new \ownExceptions\PropertyNotFoundException("propertynotfoundexception");
+                throw new \ownExceptions\PropertyNotFoundException("propertynotfoundexception");
                 break;
             default:
-                return new Exception("smth really gone wrong");
+                throw new Exception("smth really gone wrong");
         }
     }
 }
