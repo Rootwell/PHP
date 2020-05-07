@@ -1,8 +1,4 @@
 <?php
-spl_autoload_register(function ($className) {
-    include "\ownExceptions\\".$className.".php";
-    echo "ya v exceptionGeneratore bil";
-});
 
 class ExceptionGenerator
 {
