@@ -42,9 +42,22 @@ class ComplexNumberTest extends TestCase
         self::assertEquals($expected, $complexNumber->abs());
     }
 
+    /**
+     * @expectedException Exception
+     */
+    public function testZeroDiv()
+    {
+        $firstComplexNumber = new ComplexNumber(7, 5);
+        $secondComplexNumber = new ComplexNumber(0, 0);
+        $firstComplexNumber->div($secondComplexNumber);
+    }
+
+    /**
+     * @depends testZeroDiv
+     */
     public function testDiv()
     {
-        $firstComplexNumber = new ComplexNumber(7,5);
+        $firstComplexNumber = new ComplexNumber(7, 5);
         $secondComplexNumber = new ComplexNumber(3, -4);
         $expected = new ComplexNumber(0.04, 1.72);
         $firstComplexNumber->div($secondComplexNumber);

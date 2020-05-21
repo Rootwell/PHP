@@ -9,7 +9,7 @@ class ComplexNumber
     private float $imaginary;
 
     /**
-     * @return int
+     * @return float
      */
     public function getReal(): float
     {
@@ -25,7 +25,7 @@ class ComplexNumber
     }
 
     /**
-     * @return int
+     * @return float
      */
     public function getImaginary(): float
     {
