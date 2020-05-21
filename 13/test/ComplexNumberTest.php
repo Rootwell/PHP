@@ -2,10 +2,11 @@
 
 require_once "complexNumber\ComplexNumber.php";
 
-use complexNumber\ComplexNumber;
 use PHPUnit\Framework\TestCase;
+use complexNumber\ComplexNumber;
 
-class ComplexNumberTest extends \PHPUnit\Framework\TestCase
+
+class ComplexNumberTest extends TestCase
 {
     public function testAdd()
     {
@@ -37,7 +38,7 @@ class ComplexNumberTest extends \PHPUnit\Framework\TestCase
     public function testABS()
     {
         $complexNumber = new ComplexNumber(2, -5);
-        $expected = 5.38516;
+        $expected = 5.385164807134504;
         self::assertEquals($expected, $complexNumber->abs());
     }
 

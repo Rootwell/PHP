@@ -71,17 +71,21 @@ class ComplexNumber
 
     public function mult(ComplexNumber $complexNumber)
     {
-        $this->real = $this->real * $complexNumber->getReal() - $this->imaginary * $complexNumber->getImaginary();
-        $this->imaginary = $this->imaginary * $complexNumber->getReal() + $this->real * $complexNumber->getImaginary();
+        $thisTmpReal = $this->real;
+        $thisTmpImaginary = $this->imaginary;
+        $this->real = $thisTmpReal * $complexNumber->getReal() - $thisTmpImaginary * $complexNumber->getImaginary();
+        $this->imaginary = $thisTmpImaginary * $complexNumber->getReal() + $thisTmpReal * $complexNumber->getImaginary();
     }
 
     public function div(ComplexNumber $complexNumber)
     {
+        $thisTmpReal = $this->real;
+        $thisTmpImaginary = $this->imaginary;
         $divisor = $complexNumber->getReal() * $complexNumber->getReal() + $complexNumber->getImaginary() * $complexNumber->getImaginary();
         $tmp = new ComplexNumber($complexNumber->getReal(), -$complexNumber->getImaginary());
         if ($divisor != 0) {
-            $this->real = $this->real * $tmp->getReal() - $this->imaginary * $tmp->getImaginary() / $divisor;
-            $this->imaginary = $this->imaginary * $tmp->getReal() + $this->real * $tmp->getImaginary() / $divisor;
+            $this->real = ($thisTmpReal * $tmp->getReal() - $thisTmpImaginary * $tmp->getImaginary()) / $divisor;
+            $this->imaginary = ($thisTmpImaginary * $tmp->getReal() + $thisTmpReal * $tmp->getImaginary()) / $divisor;
         } else {
             echo "Division by zero";
         }
